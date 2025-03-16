@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 
 @Component({
@@ -9,5 +10,18 @@ import { MatListModule } from '@angular/material/list';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+  constructor(private router: Router) {}
 
+  navegarParaCadastro() {
+    this.router.navigate(['/cadastro']);
+  }
+
+  navegarParaHome() {
+    this.router.navigate(['/home']);
+  }
+
+  navegarParaLista() {
+    this.router.navigate(['/lista']);
+  }
+  
 }
