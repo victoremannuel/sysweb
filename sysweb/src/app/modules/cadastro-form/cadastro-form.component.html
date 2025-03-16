@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>Cadastro de Usuário</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Digite seu nome" aria-label="Nome" required>
+        <mat-error *ngIf="cadastroForm.get('nome')?.invalid">Nome é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Digite seu email" aria-label="Email" required>
+        <mat-error *ngIf="cadastroForm.get('email')?.invalid">Email inválido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="senha" placeholder="Digite sua senha" aria-label="Senha" required>
+        <mat-error *ngIf="cadastroForm.get('senha')?.invalid">Senha é obrigatória</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="cadastroForm.invalid">
+        Cadastrar
+      </button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
